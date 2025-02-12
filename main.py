@@ -1,3 +1,6 @@
+from random import randint
+from colorama import Fore as color
+
 class Game:
     def __init__(self):
 
@@ -25,22 +28,40 @@ class Game:
 
         self.ROUND = round
         self.DOOR_COUNT = door_count
-        self.CHANGE = change
-        self.win_count = 0
-        self.loose_count = 0
+        self.DOOR_CHANGE = change
+        self.count_win = 0
+        self.count_loose = 0
 
     def result(self):
         print(f'Количество дверей {self.DOOR_COUNT}')
-        print(f'Смена двери {"Да" if self.CHANGE else "Нет"}')
-        print(f'Выигрышей: {self.win_count}')
-        print(f'Проигрышей: {self.loose_count}')
+        print(f'Смена двери {"Да" if self.DOOR_CHANGE else "Нет"}')
+        print(f'Выигрышей: {self.count_win}')
+        print(f'Проигрышей: {self.count_loose}')
 
-    def round(self):
-        self.win_count += 1
+    def round(self, n):
+        print(f'Раунд - {n + 1} ', end = '')
+        door_car = randint(1, self.DOOR_COUNT)
+        door_select = randint(1, self.DOOR_COUNT)
+        print(f'Автомобиль за дверью {door_car}, игрок выбрал {door_select} ', end = '')
+        if self.DOOR_CHANGE:
+            if door_car == door_select:
+                self.count_loose += 1
+                print(color.RED, 'Проиграл', end='')
+            else:
+                self.count_win += 1
+                print(color.GREEN, 'Выиграл', end='')
+        else:
+            if door_car == door_select:
+                self.count_win += 1
+                print(color.GREEN, 'Выиграл', end='')
+            else:
+                self.count_loose += 1
+                print(color.RED, 'Проиграл', end='')
+        print(color.RESET)
 
     def game_start(self):
         for i in range(self.ROUND):
-            self.round()
+            self.round(i)
         self.result()
         self.game_end()
 
