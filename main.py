@@ -48,7 +48,7 @@ class Game:
     def result(self):
         """
         Вывод результата игры
-        :return: none
+        :return: None
         """
         print(self)
 
@@ -83,7 +83,7 @@ class Game:
     def game_start(self):
         """
         Запуск игры
-        :return: none
+        :return: None
         """
         for i in range(self.gamer.ROUND):
             print(self.round(i))
@@ -93,7 +93,7 @@ class Game:
     def game_end(self):
         """
         Завершение игры
-        :return: none
+        :return: None
         """
         print('Конец игры')
 
