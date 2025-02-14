@@ -58,10 +58,10 @@ class Game:
         :return: Результат раунда игры
         :rtype: str
         """
-        str = f'Раунд: - {n + 1}, '
+        str = f'Раунд: {n + 1}, '
         door_car = randint(1, self.DOOR_COUNT)
         door_select = randint(1, self.DOOR_COUNT)
-        str += f'Автомобиль за дверью {door_car}, игрок выбрал {door_select}, '
+        str += f'автомобиль за дверью {door_car}, игрок выбрал {door_select}, '
         if self.gamer.DOOR_CHANGE:
             if door_car == door_select:
                 self.gamer.count_loose += 1
