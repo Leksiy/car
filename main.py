@@ -33,6 +33,7 @@ class Game:
     """
 
     def __init__(self, gamer):
+        super().__init__()
         door_count = int(input('Количество дверей (Enter = 3): ').strip() or '3')
         if door_count < 3:
             door_count = 3
