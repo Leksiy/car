@@ -2,17 +2,13 @@ from random import randint
 from colorama import Fore as color_text
 
 class Gamer:
-    """
-    Класс игрока
-    """
-
     def __init__(self):
+        """
+        Объект класса Игрок
+        :return: None
+        """
         super().__init__()
-        change = input('Менять ли дверь? (y/n Enter = y): ').strip() or 'y'
-        if change == '' or change == 'y':
-            change = True
-        else:
-            change = False
+        change = (input('Менять ли дверь? (y/n Enter = y): ').strip() or 'y') == 'y'
         round = int(input('Количество попыток (Enter = 100): ').strip() or '100')
         if round < 1:
             round = 1
@@ -28,11 +24,10 @@ class Gamer:
         return str
 
 class Game:
-    """
-    Класс игры
-    """
-
     def __init__(self, gamer):
+        """
+        Объект класса Игра
+        """
         super().__init__()
         door_count = int(input('Количество дверей (Enter = 3): ').strip() or '3')
         if door_count < 3:
