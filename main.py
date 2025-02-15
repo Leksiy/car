@@ -24,9 +24,11 @@ class Gamer:
         return str
 
 class Game:
-    def __init__(self, gamer):
+    def __init__(self, gamer: Gamer):
         """
         Объект класса Игра
+        :param gamer: Игрок: Игрок
+        :return: None
         """
         super().__init__()
         door_count = int(input('Количество дверей (Enter = 3): ').strip() or '3')
@@ -47,10 +49,10 @@ class Game:
         """
         print(self)
 
-    def round(self, n):
+    def round(self, n: int):
         """
         Расчет раунда игры
-        :param n: Номер раунда
+        :param n: Номер раунда: int
         :return: Результат раунда игры
         :rtype: str
         """
